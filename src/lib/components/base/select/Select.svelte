@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { slide, fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	import { ChevronDown } from 'lucide-svelte';
 
 	import { SelectItem } from '$lib';
 	import type { SelectOption } from '$lib/types/component';
+
+	export let id: string | undefined;
 
 	export let placeholder: string | undefined;
 	export let value = '';
@@ -17,7 +19,7 @@
 
 	let label: string;
 
-	items.forEach((item) => {
+	$: items.forEach((item) => {
 		if (value === item.value) {
 			label = item.label;
 		}
@@ -26,8 +28,9 @@
 
 <!-- TODO: This needs to be accessible! Make sure it adheres to https://www.w3.org/WAI/ARIA/apg/patterns/listbox/ -->
 <button
-	class="{$$restProps.class} relative flex place-items-center z-0 px-3 py-2 rounded-md shadow-lg cursor-pointer bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200"
+	class="{$$restProps.class} relative flex place-items-center px-3 py-2 rounded-md shadow-lg cursor-pointer bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200"
 	on:click={() => (open = !open)}
+	{id}
 >
 	{#if !noChevron}
 		<ChevronDown
@@ -45,12 +48,7 @@
 	{/if}
 	{#if open}
 		<div
-			class="absolute left-0 right-0 top-0 bottom-0 shadow-lg dark:shadow-md z-10 opacity-50 dark:opacity-100"
-			in:fade={{ duration: 0 }}
-			out:fade
-		></div>
-		<div
-			class="absolute flex flex-col z-0 top-[85%] left-0 right-0 py-2 rounded-md bg-zinc-100 dark:bg-zinc-800"
+			class="absolute flex flex-col z-10 top-[85%] left-0 right-0 py-2 rounded-md bg-zinc-100 dark:bg-zinc-800"
 			transition:slide={{ duration: 200 }}
 		>
 			{#each items as { label: itemLabel, value: itemValue }}
