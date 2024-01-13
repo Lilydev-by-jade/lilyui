@@ -9,7 +9,7 @@
 	export let id: string | undefined;
 
 	export let placeholder: string | undefined;
-	export let value = '';
+	export let value: any | undefined = '';
 	export let open: boolean = false;
 	export let items: SelectOption[];
 
@@ -27,8 +27,9 @@
 </script>
 
 <!-- TODO: This needs to be accessible! Make sure it adheres to https://www.w3.org/WAI/ARIA/apg/patterns/listbox/ -->
+<!-- TODO: Needs 'disabled' state -->
 <button
-	class="{$$restProps.class} relative flex place-items-center px-3 py-2 rounded-md shadow-lg cursor-pointer bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200"
+	class="{$$restProps.class} relative flex place-items-center px-3 py-2 rounded-md shadow-sm dark:shadow-lg cursor-pointer bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200"
 	on:click={() => (open = !open)}
 	{id}
 >
