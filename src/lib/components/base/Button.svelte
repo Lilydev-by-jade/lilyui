@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade, scale } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	import { Loader2 } from 'lucide-svelte';
 
