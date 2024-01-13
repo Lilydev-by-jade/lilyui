@@ -35,6 +35,13 @@
 
 	let buttonCount = 0;
 
+	function setLoading() {
+		isLoading = true;
+		setTimeout(() => {
+			isLoading = false;
+		}, 2000);
+	}
+
 	$: isLoading = false;
 </script>
 
@@ -82,12 +89,22 @@
 
 		<label for="select_loading">Select (Loading)</label>
 		<Select
-			id="loading"
+			id="select_loading"
 			class="w-96"
 			placeholder="Choose is loading"
 			items={loadingSelectItems}
 			bind:value={isLoading}
 			noChevron
+		/>
+
+		<label for="select_disabled">Select (disabled)</label>
+		<Select
+			id="select_disabled"
+			class="w-96"
+			placeholder="Choose is loading"
+			items={loadingSelectItems}
+			bind:value={isLoading}
+			disabled
 		/>
 	</Section>
 	<Section label="Button Component">
@@ -131,12 +148,7 @@
 
 		<p>Loading (loading should be used with the `disabled` attribute)</p>
 		<div class="flex flex-col place-items-center gap-2">
-			<Button
-				class="w-full"
-				on:click={() => (isLoading = true)}
-				disabled={isLoading}
-				loading={isLoading}
-			>
+			<Button class="w-full" on:click={setLoading} disabled={isLoading} loading={isLoading}>
 				Load!
 			</Button>
 		</div>
