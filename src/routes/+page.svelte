@@ -2,7 +2,7 @@
 	// Lib
 
 	import type { SelectOption } from '$lib/types/component';
-	import { Button, Select } from '$lib';
+	import { Button, Select, Tooltip } from '$lib';
 	import { Bluesky, Discord, Github, Modrinth, Twitter } from '$lib';
 
 	// Local
@@ -50,117 +50,161 @@
 	<title>LilyUI Examples</title>
 </svelte:head>
 
-<div class="flex flex-col gap-12">
-	<Section label="Select Component">
-		<label for="base_select">Select</label>
-		<Select
-			id="base_select"
-			placeholder="Choose theme..."
-			items={selectItems}
-			bind:value={$theme}
-		/>
+<div class="flex flex-row gap-12">
+	<div class="flex flex-col gap-12">
+		<Section label="Select Component">
+			<label for="base_select">Select</label>
+			<Select
+				id="base_select"
+				placeholder="Choose theme..."
+				items={selectItems}
+				bind:value={$theme}
+			/>
 
-		<label for="select_custom_width">Select (Custom width)</label>
-		<Select
-			id="select_custom_width"
-			class="w-44"
-			placeholder="Choose theme..."
-			items={selectItems}
-			bind:value={$theme}
-		/>
+			<label for="select_custom_width">Select (Custom width)</label>
+			<Select
+				id="select_custom_width"
+				class="w-44"
+				placeholder="Choose theme..."
+				items={selectItems}
+				bind:value={$theme}
+			/>
 
-		<label for="select_no_chevron_animation">Select (No chevron animation)</label>
-		<Select
-			id="select_no_chevron_animation"
-			placeholder="Choose theme..."
-			items={selectItems}
-			bind:value={$theme}
-			animateChevron={false}
-		/>
+			<label for="select_no_chevron_animation">Select (No chevron animation)</label>
+			<Select
+				id="select_no_chevron_animation"
+				placeholder="Choose theme..."
+				items={selectItems}
+				bind:value={$theme}
+				animateChevron={false}
+			/>
 
-		<label for="select_no_chevron">Select (No chevron)</label>
-		<Select
-			id="select_no_chevron"
-			class="w-96"
-			placeholder="Choose theme..."
-			items={selectItems}
-			bind:value={$theme}
-			noChevron
-		/>
+			<label for="select_no_chevron">Select (No chevron)</label>
+			<Select
+				id="select_no_chevron"
+				placeholder="Choose theme..."
+				items={selectItems}
+				bind:value={$theme}
+				noChevron
+			/>
 
-		<label for="select_loading">Select (Loading)</label>
-		<Select
-			id="select_loading"
-			class="w-96"
-			placeholder="Choose is loading"
-			items={loadingSelectItems}
-			bind:value={isLoading}
-			noChevron
-		/>
+			<label for="select_loading">Select (Loading)</label>
+			<Select
+				id="select_loading"
+				placeholder="Choose is loading"
+				items={loadingSelectItems}
+				bind:value={isLoading}
+				noChevron
+			/>
 
-		<label for="select_disabled">Select (disabled)</label>
-		<Select
-			id="select_disabled"
-			class="w-96"
-			placeholder="Choose is loading"
-			items={loadingSelectItems}
-			bind:value={isLoading}
-			disabled
-		/>
-	</Section>
-	<Section label="Button Component">
-		<p>Counter Example</p>
-		<div class="flex place-items-center gap-4">
-			<div class="flex flex-col grow gap-2">
-				<Button class="grow" on:click={incrementButtonCount}>Increment</Button>
-				<Button class="grow" on:click={decrementButtonCount}>Decrement</Button>
+			<label for="select_disabled">Select (disabled)</label>
+			<Select
+				id="select_disabled"
+				placeholder="Choose is loading"
+				items={loadingSelectItems}
+				bind:value={isLoading}
+				disabled
+			/>
+		</Section>
+		<Section label="Button Component">
+			<p>Counter Example</p>
+			<div class="flex place-items-center gap-4">
+				<div class="flex flex-col grow gap-2">
+					<Button class="grow" on:click={incrementButtonCount}>Increment</Button>
+					<Button class="grow" on:click={decrementButtonCount}>Decrement</Button>
+				</div>
+				<p class="text-2xl font-semibold pb-1.5">{buttonCount}</p>
 			</div>
-			<p class="text-2xl font-semibold pb-1.5">{buttonCount}</p>
-		</div>
 
-		<p>Counter Example (with icons)</p>
-		<div class="flex place-items-center gap-4">
-			<div class="flex flex-col grow gap-2">
-				<Button on:click={incrementButtonCount}>
+			<p>Counter Example (with icons)</p>
+			<div class="flex place-items-center gap-4">
+				<div class="flex flex-col grow gap-2">
+					<Button on:click={incrementButtonCount}>
+						<svelte:fragment slot="icon">
+							<Plus size="19" />
+						</svelte:fragment>
+						Increment
+					</Button>
+					<Button on:click={decrementButtonCount}>
+						<svelte:fragment slot="icon">
+							<Minus size="19" />
+						</svelte:fragment>
+						Decrement
+					</Button>
+				</div>
+				<p class="text-2xl font-semibold pb-1.5">{buttonCount}</p>
+			</div>
+
+			<p>Disabled</p>
+			<div class="flex flex-col place-items-center gap-2">
+				<Button class="w-full" on:click={decrementButtonCount} disabled>
 					<svelte:fragment slot="icon">
-						<Plus size="19" />
+						<Bluesky size="19" />
 					</svelte:fragment>
-					Increment
-				</Button>
-				<Button on:click={decrementButtonCount}>
-					<svelte:fragment slot="icon">
-						<Minus size="19" />
-					</svelte:fragment>
-					Decrement
+					Bluesky
 				</Button>
 			</div>
-			<p class="text-2xl font-semibold pb-1.5">{buttonCount}</p>
-		</div>
 
-		<p>Disabled</p>
-		<div class="flex flex-col place-items-center gap-2">
-			<Button class="w-full" on:click={decrementButtonCount} disabled>
-				<svelte:fragment slot="icon">
-					<Bluesky size="19" />
-				</svelte:fragment>
-				Bluesky
-			</Button>
-		</div>
+			<p>Disabled with tooltip</p>
+			<Tooltip tooltip="woah this is disabled" align="right">
+				<Button class="w-full" on:click={decrementButtonCount} disabled>
+					<svelte:fragment slot="icon">
+						<Bluesky size="19" />
+					</svelte:fragment>
+					Bluesky
+				</Button>
+			</Tooltip>
 
-		<p>Loading (loading should be used with the `disabled` attribute)</p>
-		<div class="flex flex-col place-items-center gap-2">
-			<Button class="w-full" on:click={setLoading} disabled={isLoading} loading={isLoading}>
-				Load!
-			</Button>
-		</div>
-	</Section>
-	<Section label="Icon Components">
-		<div class="flex gap-3">
-			<Bluesky size="40" />
-			<Discord size="40" />
-			<Github size="40" />
-			<Modrinth size="40" />
-			<Twitter size="40" />
-		</div>
-	</Section>
+			<p>Loading (loading should be used with the `disabled` attribute)</p>
+			<div class="flex flex-col place-items-center gap-2">
+				<Button
+					class="w-full"
+					on:click={setLoading}
+					disabled={isLoading}
+					loading={isLoading}
+				>
+					Load!
+				</Button>
+			</div>
+		</Section>
+	</div>
+	<div class="flex flex-col gap-12">
+		<Section label="Icon Components">
+			<div class="flex gap-3">
+				<Bluesky size="40" />
+				<Discord size="40" />
+				<Github size="40" />
+				<Modrinth size="40" />
+				<Twitter size="40" />
+			</div>
+		</Section>
+		<Section label="Tooltip Component">
+			<Tooltip tooltip="This is a tooltip!" align="top">
+				<p>Tooltips!</p>
+			</Tooltip>
+
+			<Tooltip tooltip="This is a top-aligned tooltip!" align="top">
+				<Button>Top tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a bottom-aligned tooltip!" align="bottom">
+				<Button>Bottom tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a right-aligned tooltip!" align="right">
+				<Button>Right tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a left-aligned tooltip!" align="left">
+				<Button>Left tooltip!</Button>
+			</Tooltip>
+
+			<Tooltip
+				tooltip="This is another tooltip! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, temporibus."
+				align="top"
+			>
+				<Button>This is a <em>really</em> long tooltip</Button>
+			</Tooltip>
+		</Section>
+		<!-- <Section label="Tabs Component">
+			<p>placeholder</p>
+		</Section> -->
+	</div>
 </div>
