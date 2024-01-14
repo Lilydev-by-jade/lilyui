@@ -9,4 +9,8 @@ Additionally, this is my first NPM package so code may be a bit messy. Feel free
 
 ## License
 
-The source code in this repository is licensed under the [MIT License](/LICENSE).
+Original source code in this repository is licensed under the [MIT License](/LICENSE), unless stated otherwise.
+
+Some components may include content from [Lucide](https://lucide.dev/), which are licensed under the [ISC License](https://lucide.dev/license).
+
+The icon art included in `src/lib/components/icons/brand` are All Rights Reserved under their respective owners.

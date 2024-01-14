@@ -2,7 +2,7 @@
 	// Lib
 
 	import type { SelectOption } from '$lib/types/component';
-	import { Button, Select } from '$lib';
+	import { Button, Discord, Github, Twitter, Select } from '$lib';
 
 	// Local
 
@@ -151,6 +151,13 @@
 			<Button class="w-full" on:click={setLoading} disabled={isLoading} loading={isLoading}>
 				Load!
 			</Button>
+		</div>
+	</Section>
+	<Section label="Icon Components">
+		<div class="flex gap-3">
+			<Github size="40" />
+			<Discord size="40" />
+			<Twitter size="40" />
 		</div>
 	</Section>
 </div>
