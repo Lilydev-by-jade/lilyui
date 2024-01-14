@@ -141,9 +141,9 @@
 		<div class="flex flex-col place-items-center gap-2">
 			<Button class="w-full" on:click={decrementButtonCount} disabled>
 				<svelte:fragment slot="icon">
-					<Minus size="19" />
+					<Bluesky size="19" />
 				</svelte:fragment>
-				Decrement
+				Bluesky
 			</Button>
 		</div>
 
