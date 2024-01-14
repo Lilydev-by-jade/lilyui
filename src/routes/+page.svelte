@@ -2,7 +2,8 @@
 	// Lib
 
 	import type { SelectOption } from '$lib/types/component';
-	import { Button, Discord, Github, Twitter, Select } from '$lib';
+	import { Button, Select } from '$lib';
+	import { Bluesky, Discord, Github, Modrinth, Twitter } from '$lib';
 
 	// Local
 
@@ -155,8 +156,10 @@
 	</Section>
 	<Section label="Icon Components">
 		<div class="flex gap-3">
-			<Github size="40" />
+			<Bluesky size="40" />
 			<Discord size="40" />
+			<Github size="40" />
+			<Modrinth size="40" />
 			<Twitter size="40" />
 		</div>
 	</Section>
