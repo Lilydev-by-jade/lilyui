@@ -2,7 +2,7 @@
 	// Lib
 
 	import type { SelectOption } from '$lib/types/component';
-	import { Button, Select, Tooltip } from '$lib';
+	import { Button, Select, Toggle, Tooltip } from '$lib';
 	import { Bluesky, Discord, Github, Modrinth, Twitter } from '$lib';
 
 	// Local
@@ -44,6 +44,8 @@
 	}
 
 	$: isLoading = false;
+
+	$: toggle = false;
 </script>
 
 <svelte:head>
@@ -203,8 +205,23 @@
 				<Button>This is a <em>really</em> long tooltip</Button>
 			</Tooltip>
 		</Section>
-		<!-- <Section label="Tabs Component">
-			<p>placeholder</p>
-		</Section> -->
+		<Section label="Toggle Component">
+			<div class="flex justify-between">
+				<label for="toggle">Toggled: {toggle}</label>
+				<Toggle bind:value={toggle} id="toggle" />
+			</div>
+			<div class="flex justify-between">
+				<label for="toggle">Toggle with custom classes</label>
+				<Toggle
+					bind:value={toggle}
+					id="toggle"
+					class="peer-checked:dark:bg-blue-400 peer-checked:bg-blue-500"
+				/>
+			</div>
+			<div class="flex justify-between">
+				<label for="toggle">Toggle (disabled)</label>
+				<Toggle bind:value={toggle} id="toggle" disabled />
+			</div>
+		</Section>
 	</div>
 </div>

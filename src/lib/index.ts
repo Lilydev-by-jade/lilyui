@@ -2,6 +2,7 @@
 export { default as Button } from './components/base/Button.svelte';
 export { default as Select } from './components/base/select/Select.svelte';
 export { default as SelectItem } from './components/base/select/SelectItem.svelte';
+export { default as Toggle } from './components/base/Toggle.svelte';
 export { default as Tooltip } from './components/base/Tooltip.svelte';
 
 // Icons
