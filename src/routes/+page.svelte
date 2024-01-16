@@ -188,6 +188,13 @@
 				</svelte:fragment>
 				Link Button with icon!
 			</Button>
+
+			<Button href="https://github.com/Lilydev-by-jade/lilyui" target="_blank">
+				<svelte:fragment slot="icon">
+					<Github size="19" />
+				</svelte:fragment>
+				Link Button with icon!
+			</Button>
 		</Section>
 	</div>
 	<div class="flex flex-col gap-12">
