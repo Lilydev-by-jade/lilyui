@@ -3,7 +3,17 @@
 
 	import type { SelectOption } from '$lib/types/component';
 	import { Button, Select, Toggle, Tooltip } from '$lib';
-	import { Bluesky, Discord, Github, Modrinth, Twitter } from '$lib';
+	import {
+		Bluesky,
+		Discord,
+		Github,
+		Modrinth,
+		Rust,
+		Svelte,
+		SvelteOutline,
+		Tailwind,
+		Twitter
+	} from '$lib';
 
 	// Local
 
@@ -172,12 +182,34 @@
 	</div>
 	<div class="flex flex-col gap-12">
 		<Section label="Icon Components">
+			<h2 class="text-xl font-semibold mt-3">Brand</h2>
 			<div class="flex gap-3">
 				<Bluesky size="40" />
 				<Discord size="40" />
 				<Github size="40" />
 				<Modrinth size="40" />
 				<Twitter size="40" />
+			</div>
+			<h2 class="text-xl font-semibold mt-3">Stack</h2>
+			<h3 class="text-md">Svelte - Brand Colors</h3>
+			<div class="flex gap-3">
+				<Svelte size="40" brand />
+				<SvelteOutline size="40" brand />
+			</div>
+			<h3 class="text-md">Svelte - Custom Colors</h3>
+			<div class="flex gap-3">
+				<Svelte size="40" />
+				<SvelteOutline size="40" />
+			</div>
+			<h3 class="text-md">Rust</h3>
+			<div class="flex gap-3">
+				<Rust size="40" />
+				<Rust size="40" brand />
+			</div>
+			<h3 class="text-md">Tailwind</h3>
+			<div class="flex gap-3">
+				<Tailwind size="40" />
+				<Tailwind size="40" brand />
 			</div>
 		</Section>
 		<Section label="Tooltip Component">
