@@ -119,6 +119,7 @@
 			/>
 		</Section>
 		<Section label="Button Component">
+			<h2 class="text-xl font-semibold mt-3">Button</h2>
 			<p>Counter Example</p>
 			<div class="flex place-items-center gap-4">
 				<div class="flex flex-col grow gap-2">
@@ -178,6 +179,15 @@
 					Load!
 				</Button>
 			</div>
+
+			<h2 class="text-xl font-semibold mt-3">Button Link</h2>
+			<Button href="/test">Link Button!</Button>
+			<Button href="/test">
+				<svelte:fragment slot="icon">
+					<Modrinth size="19" />
+				</svelte:fragment>
+				Link Button with icon!
+			</Button>
 		</Section>
 	</div>
 	<div class="flex flex-col gap-12">
