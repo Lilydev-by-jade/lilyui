@@ -13,7 +13,9 @@
 	<div
 		class="
 			w-11 h-6 rounded-full transition-colors peer shadow-sm dark:shadow-2xl
-			peer-checked:bg-pink-300 peer-checked:dark:bg-pink-300 bg-zinc-300 dark:bg-zinc-700
+			bg-zinc-300 dark:bg-zinc-700 {disabled
+			? 'peer-checked:bg-zinc-300 peer-checked:dark:bg-zinc-700'
+			: 'peer-checked:bg-pink-300 peer-checked:dark:bg-pink-300'}
 			after:absolute after:w-[18px] after:h-[18px] after:top-1/2 after:-translate-y-1/2
 			{disabled ? 'after:bg-zinc-200 after:dark:bg-zinc-500' : 'after:bg-zinc-50 after:dark:bg-zinc-200'}
 			after:rounded-full after:start-[4px] after:transition-transform
