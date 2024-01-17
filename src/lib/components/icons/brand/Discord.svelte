@@ -2,10 +2,14 @@
 <script lang="ts">
 	export let size: number | string = 24;
 	export let color: string = 'currentColor';
+	export let brand: boolean = false;
 </script>
 
 <svg
-	class={$$restProps.class}
+	class="
+		{brand ? 'fill-[#5865F2]' : color === 'currentColor' ? 'fill-current' : `fill-[${color}]`} 
+		{$$restProps.class}
+	"
 	aria-hidden="true"
 	xmlns="http://www.w3.org/2000/svg"
 	fill={color}

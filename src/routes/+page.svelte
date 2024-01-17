@@ -118,6 +118,52 @@
 				disabled
 			/>
 		</Section>
+
+		<Section label="Tooltip Component">
+			<Tooltip tooltip="This is a tooltip!" align="top">
+				<p>Tooltips!</p>
+			</Tooltip>
+
+			<Tooltip tooltip="This is a top-aligned tooltip!" align="top">
+				<Button>Top tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a bottom-aligned tooltip!" align="bottom">
+				<Button>Bottom tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a right-aligned tooltip!" align="right">
+				<Button>Right tooltip!</Button>
+			</Tooltip>
+			<Tooltip tooltip="This is a left-aligned tooltip!" align="left">
+				<Button>Left tooltip!</Button>
+			</Tooltip>
+
+			<Tooltip
+				tooltip="This is another tooltip! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, temporibus."
+				align="top"
+			>
+				<Button>This is a <em>really</em> long tooltip</Button>
+			</Tooltip>
+		</Section>
+		<Section label="Toggle Component">
+			<div class="flex justify-between">
+				<label for="toggle">Toggled: {toggle}</label>
+				<Toggle bind:value={toggle} id="toggle" />
+			</div>
+			<div class="flex justify-between">
+				<label for="toggle">Toggle with custom classes</label>
+				<Toggle
+					bind:value={toggle}
+					id="toggle"
+					class="peer-checked:dark:bg-blue-400 peer-checked:bg-blue-500"
+				/>
+			</div>
+			<div class="flex justify-between">
+				<label for="toggle">Toggle (disabled)</label>
+				<Toggle bind:value={toggle} id="toggle" disabled />
+			</div>
+		</Section>
+	</div>
+	<div class="flex flex-col gap-12">
 		<Section label="Button Component">
 			<h2 class="text-xl font-semibold mt-3">Button</h2>
 			<p>Counter Example</p>
@@ -202,10 +248,21 @@
 			<h2 class="text-xl font-semibold mt-3">Brand</h2>
 			<div class="flex gap-3">
 				<Bluesky size="40" />
-				<Discord size="40" />
 				<Github size="40" />
-				<Modrinth size="40" />
 				<Twitter size="40" />
+			</div>
+
+			<h3 class="text-md">Discord</h3>
+			<div class="flex gap-3">
+				<Discord size="40" />
+				<Discord size="40" color="#ee7df5" />
+				<Discord size="40" brand />
+			</div>
+			<h3 class="text-md">Modrinth</h3>
+			<div class="flex gap-3">
+				<Modrinth size="40" />
+				<Modrinth size="40" color="#ee7df5" />
+				<Modrinth size="40" brand />
 			</div>
 			<h2 class="text-xl font-semibold mt-3">Stack</h2>
 			<h3 class="text-md">Svelte - Brand Colors</h3>
@@ -227,49 +284,6 @@
 			<div class="flex gap-3">
 				<Tailwind size="40" />
 				<Tailwind size="40" brand />
-			</div>
-		</Section>
-		<Section label="Tooltip Component">
-			<Tooltip tooltip="This is a tooltip!" align="top">
-				<p>Tooltips!</p>
-			</Tooltip>
-
-			<Tooltip tooltip="This is a top-aligned tooltip!" align="top">
-				<Button>Top tooltip!</Button>
-			</Tooltip>
-			<Tooltip tooltip="This is a bottom-aligned tooltip!" align="bottom">
-				<Button>Bottom tooltip!</Button>
-			</Tooltip>
-			<Tooltip tooltip="This is a right-aligned tooltip!" align="right">
-				<Button>Right tooltip!</Button>
-			</Tooltip>
-			<Tooltip tooltip="This is a left-aligned tooltip!" align="left">
-				<Button>Left tooltip!</Button>
-			</Tooltip>
-
-			<Tooltip
-				tooltip="This is another tooltip! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, temporibus."
-				align="top"
-			>
-				<Button>This is a <em>really</em> long tooltip</Button>
-			</Tooltip>
-		</Section>
-		<Section label="Toggle Component">
-			<div class="flex justify-between">
-				<label for="toggle">Toggled: {toggle}</label>
-				<Toggle bind:value={toggle} id="toggle" />
-			</div>
-			<div class="flex justify-between">
-				<label for="toggle">Toggle with custom classes</label>
-				<Toggle
-					bind:value={toggle}
-					id="toggle"
-					class="peer-checked:dark:bg-blue-400 peer-checked:bg-blue-500"
-				/>
-			</div>
-			<div class="flex justify-between">
-				<label for="toggle">Toggle (disabled)</label>
-				<Toggle bind:value={toggle} id="toggle" disabled />
 			</div>
 		</Section>
 	</div>
