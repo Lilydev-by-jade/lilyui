@@ -7,6 +7,7 @@
 		Bluesky,
 		Discord,
 		Github,
+		Mastodon,
 		Modrinth,
 		Rust,
 		Svelte,
@@ -262,6 +263,15 @@
 						<Discord size="40" />
 						<Discord size="40" color="#ee7df5" />
 						<Discord size="40" brand />
+					</div>
+				</div>
+
+				<div class="flex flex-col gap-2">
+					<h3 class="text-md">Mastodon</h3>
+					<div class="flex gap-3">
+						<Mastodon size="40" />
+						<Mastodon size="40" color="#ee7df5" />
+						<Mastodon size="40" brand />
 					</div>
 				</div>
 

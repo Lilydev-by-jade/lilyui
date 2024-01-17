@@ -9,6 +9,7 @@ export { default as Tooltip } from './components/base/Tooltip.svelte';
 export { default as Bluesky } from './components/icons/brand/Bluesky.svelte';
 export { default as Discord } from './components/icons/brand/Discord.svelte';
 export { default as Github } from './components/icons/brand/Github.svelte';
+export { default as Mastodon } from './components/icons/brand/Mastodon.svelte';
 export { default as Modrinth } from './components/icons/brand/Modrinth.svelte';
 export { default as Twitter } from './components/icons/brand/Twitter.svelte';
 
